@@ -180,11 +180,16 @@ public class HMArranger {
 	
 	private static <S> double score(Permutation<? extends Row<S>> rows) {
 		double penalty = 0;
-		// pairwise potentials
 		for(int i=0; i<rows.size()-1; i++) {
 			Row<S> r1 = rows.get(i);
 			Row<S> r2 = rows.get(i+1);
+			// 1-neighbors
 			penalty += r1.disagreement(r2);
+			// 2-neighbors
+			if(i < rows.size()-2) {
+				Row<S> r3 = rows.get(i+2);
+				penalty += r1.disagreement(r3);
+			}
 		}
 		return -penalty;
 	}
