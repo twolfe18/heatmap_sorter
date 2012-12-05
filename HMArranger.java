@@ -329,7 +329,7 @@ public class HMArranger {
 	public static void main(String[] args) throws Exception {
 		
 		final int maxIter = 20;						// runs up to (maxIter*k*log(k)) iterations for a length k csv
-		final int neighbors = 50;
+		final int neighbors = 100;
 		final int N = 4;							// how many threads / parallel searches
 		final int[] changeSizes = new int[]{2};	// how many indices per mutation
 		final double greedy = 2.0;					// 0 = random search, infinity = hillclimbing
